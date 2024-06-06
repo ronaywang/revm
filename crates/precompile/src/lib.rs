@@ -14,6 +14,7 @@ pub mod bls12_381;
 pub mod bn128;
 pub mod hash;
 pub mod identity;
+pub mod test_precompile;
 #[cfg(feature = "c-kzg")]
 pub mod kzg_point_evaluation;
 pub mod modexp;
@@ -82,6 +83,7 @@ impl Precompiles {
                 hash::SHA256,
                 hash::RIPEMD160,
                 identity::FUN,
+                test_precompile::FUN, //placed into Homestead spec for now. long-term, we would want to make our own custom spec
             ]);
             Box::new(precompiles)
         })
